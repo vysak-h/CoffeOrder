@@ -6,10 +6,14 @@ public class Espresso : ICoffee
     public double price => 60;
 }
 
-public class Latte: ICoffee
+public class Latte: ICoffee, IAddMilk
 {
     public string Name => "Latte";
     public double price => 80;
+    public  void AddMilk()
+    {
+        Console.WriteLine("adding milk");
+    }
 }
 public class Americano: ICoffee
 {
