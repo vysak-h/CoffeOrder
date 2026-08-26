@@ -1,8 +1,11 @@
 public class OrderDetails
 {
-    public static  string GetOrder()
+    public static int GetOrder()
     {
-        string output = Console.ReadLine()?.Trim();
-        return output;
+        if(int.TryParse(Console.ReadLine(), out int output))
+        {
+            return output;
+        }
+        return -1;
     }
 }

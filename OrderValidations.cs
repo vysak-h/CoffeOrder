@@ -1,8 +1,9 @@
 public class OrderValidations
 {
-    public static bool CheckInpOrder(string orderChoice)
+    public static bool CheckInpOrder(int orderChoice)
     {
-        if(orderChoice  != "1" && orderChoice != "2")
+        CoffeeList coffeeList = new CoffeeList();
+        if(!coffeeList.Coffees.ContainsKey(orderChoice))
         {
             return false;
         }

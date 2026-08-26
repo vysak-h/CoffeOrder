@@ -8,8 +8,8 @@ public class OrderMessages
     {
         Console.WriteLine("Please provide a valid Input!");
     }
-    public static void showOrderBill(Coffee coffee)
+    public static void showOrderBill(ICoffee coffee)
     {
-        Console.WriteLine($"You have selected {coffee.OrderName} , and your total is {coffee.amt} \n Thank you😀");
+        Console.WriteLine($"You have selected {coffee.Name} , and your total is {coffee.price} \n Thank you😀");
     }
 }

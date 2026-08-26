@@ -1,4 +1,5 @@
 public interface ICoffee
 {
-    string Name { get; set; }
+    public string Name { get; }
+    public double price { get; }
 }

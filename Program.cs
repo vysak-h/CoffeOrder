@@ -14,9 +14,7 @@ public class CoffeeOrder
         CoffeeMenu.ShowMenu();
         OrderMessages.InputMsg();
 
-        Coffee coffee = new Coffee();
-
-        string orderChoice = OrderDetails.GetOrder();
+        int orderChoice = OrderDetails.GetOrder();
 
         bool isValidInput = OrderValidations.CheckInpOrder(orderChoice);
 
@@ -25,9 +23,12 @@ public class CoffeeOrder
             OrderMessages.InputValidaMsg();
             return;
         }
+        
+        CoffeeList coffeeList = new CoffeeList();
+        var coffeeOrder = coffeeList.GetCoffeeOrder(orderChoice);
 
-        coffee = CoffeeFactory.CreateCoffeeOrder(orderChoice);
+        // ICoffee coffee = CoffeeFactory.CreateCoffeeOrder(coffeeType);
 
-        OrderMessages.showOrderBill(coffee);
+        OrderMessages.showOrderBill(coffeeOrder);
     }
 }
