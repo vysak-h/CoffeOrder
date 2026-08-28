@@ -16,16 +16,19 @@ public class CoffeeOrder
 
         int orderChoice = OrderDetails.GetOrder();
 
-        bool isValidInput = OrderValidations.CheckInpOrder(orderChoice);
+        ICoffeeRepository coffeeRepository = new CoffeeList();
+
+        IinputValidation iinputValidation = new OrderValidations(coffeeRepository);
+
+        bool isValidInput = iinputValidation.CheckInpOrder(orderChoice);
 
         if(!isValidInput)
         {
             OrderMessages.InputValidaMsg();
             return;
         }
-        
-        CoffeeList coffeeList = new CoffeeList();
-        var coffeeOrder = coffeeList.GetCoffeeOrder(orderChoice);
+
+        var coffeeOrder = coffeeRepository.GetCoffeeOrder(orderChoice);
 
         // ICoffee coffee = CoffeeFactory.CreateCoffeeOrder(coffeeType);
 
